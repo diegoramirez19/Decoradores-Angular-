@@ -1,0 +1,22 @@
+let nombre = prompt('Digite su nombre');
+
+@Saludar(nombre)
+class Bienvenida
+{
+    constructor()
+    {
+        // Instrucciones a ejecutar al instaciar la clase.
+    }
+}
+
+// Funcion que utilizaremos como decorador. 
+function Saludar(Parametro:string){             /**Pasaremos utilizaremos un parametro */
+    return function(target:Function):void{      /**Retornaremos una funcion */
+        target.prototype.Saludo = function(){   /**Dentro de esa funcion hay un metodo Saludo */
+            console.log(`Bienvenido ${Parametro}`); /**Se imprime por consola */
+        }
+    }
+}
+
+let variable1 = new Bienvenida();
+variable1.Saludo();
